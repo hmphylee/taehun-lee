@@ -40,7 +40,7 @@ python3 -m unittest -v
 
 ## Render 연결 후
 
-비공개 GitHub 저장소를 연결하고 Cron Job을 구성합니다.
+GitHub 저장소를 연결하고 Cron Job을 구성합니다. 실제 비밀 키는 저장소에 넣지 않고 Render 환경 설정에 입력합니다.
 
 - Runtime: Python 3.11 이상
 - Build Command: `python -m py_compile daily_review.py`
