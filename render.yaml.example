@@ -1,0 +1,20 @@
+# DRAFT ONLY. This file does not create or run a Render service.
+# Render cron jobs have a minimum monthly charge. Do not apply until approved.
+# Rename to render.yaml only when intentionally enabling a paid deployment.
+services:
+  - type: cron
+    name: content-daily-review
+    runtime: python
+    plan: starter
+    region: singapore
+    repo: https://github.com/hmphylee/taehun-lee
+    branch: main
+    autoDeployTrigger: "off"
+    schedule: "0 0 * * *" # 09:00 Asia/Seoul
+    buildCommand: python -m py_compile daily_review.py
+    startCommand: python daily_review.py
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
